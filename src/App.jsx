@@ -1,5 +1,11 @@
+import CodeGenerator from './components/CodeGenerator/Index';
+
 const App = () => {
-  return <div></div>;
+  return (
+    <div>
+      <CodeGenerator />
+    </div>
+  );
 };
 
 export default App;
