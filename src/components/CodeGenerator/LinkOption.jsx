@@ -4,7 +4,7 @@ const LinkOption = ({ linkValue, setLinkValue }) => {
   };
 
   return (
-    <div className="pb-2">
+    <>
       <label htmlFor="link" className="select-label">
         Link:
       </label>
@@ -15,7 +15,7 @@ const LinkOption = ({ linkValue, setLinkValue }) => {
         value={linkValue}
         onChange={handleLinkChange}
       />
-    </div>
+    </>
   );
 };
 
