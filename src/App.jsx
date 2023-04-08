@@ -7,6 +7,8 @@ import Navbar from './components/Navbar';
 const App = () => {
   const { isDarkMode, toggle } = useDarkMode();
 
+  console.log(isDarkMode);
+
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark');
@@ -16,7 +18,7 @@ const App = () => {
   }, [isDarkMode]);
 
   return (
-    <div className="bg-slate-900 text-white font-inter h-screen flex items-center flex-col">
+    <div className="font-inter h-screen flex flex-col items-center dark:bg-slate-900 dark:text-gray-100 bg-gray-100 text-slate-900 ">
       <Navbar toggleDarkMode={toggle} />
       <CodeGenerator />
     </div>
