@@ -36,30 +36,19 @@ const CodeGenerator = () => {
   };
 
   return (
-    <div>
-      <div>
-        <label>
-          Code Type:
-          <select value={codeType} onChange={handleCodeTypeChange}>
-            <option value="link">Link</option>
-            <option value="wifi">Wifi</option>
-          </select>
-        </label>
-      </div>
-
-      {codeType === 'link' && (
-        <LinkOption linkValue={linkValue} setLinkValue={setLinkValue} />
+    <div className="flex flex-col gap-4">
+      {isFirstGeneration && (
+        <div>
+          <QRCodeCanvas
+            value="https://images.unsplash.com/photo-1583083527882-4bee9aba2eea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=477&q=80"
+            size={256}
+            includeMargin={true}
+            level={'H'}
+          />
+        </div>
       )}
 
-      {codeType === 'wifi' && (
-        <WifiOption wifiInfo={wifiInfo} setWifiInfo={setWifiInfo} />
-      )}
-
-      <button onClick={triggerGeneration}>Generate</button>
-
       <div>
-        {isFirstGeneration && <div>Your QR code will show up here :{')'}</div>}
-
         {!isFirstGeneration && (
           <QRCodeCanvas
             value={
@@ -76,8 +65,6 @@ const CodeGenerator = () => {
 
       {/* A copy of the canvas element with a much bigger resolution used for creating the PNG file */}
       <div className="hidden">
-        {isFirstGeneration && <div>Your QR code will show up here :{')'}</div>}
-
         {!isFirstGeneration && (
           <QRCodeCanvas
             id="canvas"
@@ -92,6 +79,28 @@ const CodeGenerator = () => {
           />
         )}
       </div>
+
+      <div className="pl-4">
+        <div>
+          <label>
+            Code Type:
+            <select value={codeType} onChange={handleCodeTypeChange}>
+              <option value="link">Link</option>
+              <option value="wifi">Wifi</option>
+            </select>
+          </label>
+        </div>
+
+        {codeType === 'link' && (
+          <LinkOption linkValue={linkValue} setLinkValue={setLinkValue} />
+        )}
+
+        {codeType === 'wifi' && (
+          <WifiOption wifiInfo={wifiInfo} setWifiInfo={setWifiInfo} />
+        )}
+      </div>
+
+      <button onClick={triggerGeneration}>Generate</button>
 
       <DownloadButton />
     </div>
