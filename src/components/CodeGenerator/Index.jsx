@@ -82,9 +82,9 @@ const CodeGenerator = () => {
 
       <div>
         <div className="pb-4">
-          <label class="select-label">Code Type:</label>
+          <label className="select-label">Code Type:</label>
           <select
-            class="select-input"
+            className="select-input"
             value={codeType}
             onChange={handleCodeTypeChange}
           >
@@ -102,7 +102,7 @@ const CodeGenerator = () => {
         )}
       </div>
 
-      <button class="btn" onClick={triggerGeneration}>
+      <button className="btn" onClick={triggerGeneration}>
         Generate
       </button>
 

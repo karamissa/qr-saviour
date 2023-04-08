@@ -5,12 +5,12 @@ const LinkOption = ({ linkValue, setLinkValue }) => {
 
   return (
     <div className="pb-2">
-      <label htmlFor="link" class="select-label">
+      <label htmlFor="link" className="select-label">
         Link:
       </label>
       <input
         id="link"
-        class="select-input"
+        className="select-input"
         type="text"
         value={linkValue}
         onChange={handleLinkChange}

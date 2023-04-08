@@ -17,7 +17,7 @@ function DownloadButton() {
 
   return (
     <div>
-      <button class="btn w-full" onClick={handleDownloadClick}>
+      <button className="btn w-full" onClick={handleDownloadClick}>
         Download PNG
       </button>
 
