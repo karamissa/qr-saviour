@@ -1,4 +1,4 @@
-const Navbar = () => {
+const Navbar = ({ toggleDarkMode }) => {
   return (
     <div className="w-full flex justify-between center items-center p-10 text-2xl ">
       <h1>QR Saviour</h1>
@@ -11,6 +11,7 @@ const Navbar = () => {
         viewBox="0 0 24 22"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
+        onClick={toggleDarkMode}
       >
         <path
           strokeLinecap="round"
