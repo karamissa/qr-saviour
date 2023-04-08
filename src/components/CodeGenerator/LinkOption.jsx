@@ -4,11 +4,17 @@ const LinkOption = ({ linkValue, setLinkValue }) => {
   };
 
   return (
-    <div>
-      <label>
+    <div className="pb-2">
+      <label htmlFor="link" class="select-label">
         Link:
-        <input type="text" value={linkValue} onChange={handleLinkChange} />
       </label>
+      <input
+        id="link"
+        class="select-input"
+        type="text"
+        value={linkValue}
+        onChange={handleLinkChange}
+      />
     </div>
   );
 };

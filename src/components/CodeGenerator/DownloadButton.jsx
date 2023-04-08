@@ -17,7 +17,9 @@ function DownloadButton() {
 
   return (
     <div>
-      <button onClick={handleDownloadClick}>Download PNG</button>
+      <button class="btn w-full" onClick={handleDownloadClick}>
+        Download PNG
+      </button>
 
       <a href="#" ref={linkRef} download={`QR Code.png`} className="hidden">
         Download PNG

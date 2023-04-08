@@ -15,23 +15,27 @@ const WifiOption = ({ wifiInfo, setWifiInfo }) => {
 
   return (
     <div>
-      <label>
+      <label htmlFor="wifi-name" class="select-label">
         Wifi Name:
-        <input
-          type="text"
-          value={wifiInfo.name}
-          onChange={handleWifiNameChange}
-        />
       </label>
+      <input
+        id="wifi-name"
+        class="select-input"
+        type="text"
+        value={wifiInfo.name}
+        onChange={handleWifiNameChange}
+      />
 
-      <label>
+      <label htmlFor="wifi-password" class="select-label">
         Wifi Password:
-        <input
-          type="text"
-          value={wifiInfo.password}
-          onChange={handleWifiPasswordChange}
-        />
       </label>
+      <input
+        id="wifi-password"
+        class="select-input"
+        type="text"
+        value={wifiInfo.password}
+        onChange={handleWifiPasswordChange}
+      />
     </div>
   );
 };

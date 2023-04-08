@@ -36,9 +36,9 @@ const CodeGenerator = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="w-full flex flex-col px-8 gap-4">
       {isFirstGeneration && (
-        <div>
+        <div className="self-center">
           <QRCodeCanvas
             value="https://images.unsplash.com/photo-1583083527882-4bee9aba2eea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=477&q=80"
             size={256}
@@ -80,15 +80,17 @@ const CodeGenerator = () => {
         )}
       </div>
 
-      <div className="pl-4">
-        <div>
-          <label>
-            Code Type:
-            <select value={codeType} onChange={handleCodeTypeChange}>
-              <option value="link">Link</option>
-              <option value="wifi">Wifi</option>
-            </select>
-          </label>
+      <div>
+        <div className="pb-4">
+          <label class="select-label">Code Type:</label>
+          <select
+            class="select-input"
+            value={codeType}
+            onChange={handleCodeTypeChange}
+          >
+            <option value="link">Link</option>
+            <option value="wifi">Wifi</option>
+          </select>
         </div>
 
         {codeType === 'link' && (
@@ -100,7 +102,9 @@ const CodeGenerator = () => {
         )}
       </div>
 
-      <button onClick={triggerGeneration}>Generate</button>
+      <button class="btn" onClick={triggerGeneration}>
+        Generate
+      </button>
 
       <DownloadButton />
     </div>
