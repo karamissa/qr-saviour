@@ -7,8 +7,6 @@ import Navbar from './components/Navbar';
 const App = () => {
   const { isDarkMode, toggle } = useDarkMode();
 
-  console.log(isDarkMode);
-
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark');
