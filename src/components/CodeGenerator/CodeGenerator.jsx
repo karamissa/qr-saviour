@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { QRCodeCanvas } from 'qrcode.react';
 
 import LinkOption from './LinkOption';
 import WifiOption from './WifiOption';
@@ -37,47 +36,8 @@ const CodeGenerator = () => {
 
   return (
     <div className="w-full flex flex-col md:items-center px-8 gap-4">
-      {isFirstGeneration && (
-        <div className="self-center">
-          <QRCodeCanvas
-            value="https://images.unsplash.com/photo-1583083527882-4bee9aba2eea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=477&q=80"
-            size={256}
-            includeMargin={true}
-            level={'H'}
-          />
-        </div>
-      )}
-
-      <div>
-        {!isFirstGeneration && (
-          <QRCodeCanvas
-            value={
-              codeType === 'wifi'
-                ? `WIFI:T:WPA;S:${finalWifiInfo.name};P:${finalWifiInfo.password};;`
-                : finalLinkValue
-            }
-            size={256}
-            includeMargin={true}
-            level={'H'}
-          />
-        )}
-      </div>
-
-      {/* A copy of the canvas element with a much bigger resolution used for creating the PNG file */}
-      <div className="hidden">
-        {!isFirstGeneration && (
-          <QRCodeCanvas
-            id="canvas"
-            value={
-              codeType === 'wifi'
-                ? `WIFI:T:WPA;S:${finalWifiInfo.name};P:${finalWifiInfo.password};;`
-                : finalLinkValue
-            }
-            size={1024}
-            includeMargin={true}
-            level={'H'}
-          />
-        )}
+      <div className="h-64 w-64 p-4 self-center flex justify-center items-center border rounded-md">
+        <p className=" text-center">Your QR code will appear here :{')'}</p>
       </div>
 
       <div>
