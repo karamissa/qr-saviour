@@ -36,7 +36,7 @@ const CodeGenerator = () => {
   };
 
   return (
-    <div className="w-full flex flex-col px-8 gap-4">
+    <div className="w-full flex flex-col md:items-center px-8 gap-4">
       {isFirstGeneration && (
         <div className="self-center">
           <QRCodeCanvas
