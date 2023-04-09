@@ -102,7 +102,11 @@ const CodeGenerator = () => {
         Generate
       </button>
 
-      <button className="btn" onClick={triggerDownload}>
+      <button
+        className="btn"
+        disabled={finalValue === '' ? true : false}
+        onClick={triggerDownload}
+      >
         Download
       </button>
       <a href="#" ref={linkRef} className="hidden" download="QR Code.png">

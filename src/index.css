@@ -6,7 +6,7 @@
 
 @layer components {
   .btn {
-    @apply text-slate-100 bg-slate-800 hover:bg-slate-900 focus:outline-none focus:ring-4 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-slate-800 dark:hover:bg-slate-700 dark:focus:ring-slate-700 dark:border-slate-700 transition duration-200;
+    @apply text-slate-100 bg-slate-800 disabled:opacity-25 hover:bg-slate-900 focus:outline-none focus:ring-4 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-slate-800 dark:hover:bg-slate-700 dark:focus:ring-slate-700 dark:border-slate-700 transition duration-200;
   }
 
   .select-label {
