@@ -1,6 +1,6 @@
 import { useQRCode } from 'next-qrcode';
 
-function QRCode({ colors, finalValue }) {
+const QRCode = ({ colors, finalValue }) => {
   const { Image } = useQRCode();
 
   return (
@@ -17,6 +17,6 @@ function QRCode({ colors, finalValue }) {
       }}
     />
   );
-}
+};
 
 export default QRCode;

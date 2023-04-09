@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import QRCode from './QRCode';
 import LinkOption from './LinkOption';
@@ -15,6 +15,8 @@ const CodeGenerator = () => {
 
   const [colors, setColors] = useState({ pattern: '#ffffff', bg: '#000000' });
 
+  const linkRef = useRef(null);
+
   const triggerGeneration = () => {
     if (codeType === 'link') {
       setFinalValue(linkValue);
@@ -27,9 +29,20 @@ const CodeGenerator = () => {
     }
   };
 
+  const triggerDownload = () => {
+    const container = document.querySelector('#qr-code');
+    const imgSrc = container.querySelector('img').src;
+
+    linkRef.current.href = imgSrc;
+    linkRef.current.click();
+  };
+
   return (
     <div className="w-full flex flex-col md:items-center px-8 gap-4">
-      <div className="h-64 w-64 p-4 self-center flex justify-center items-center border rounded-md">
+      <div
+        id="qr-code"
+        className="h-64 w-64 p-4 self-center flex justify-center items-center border rounded-md"
+      >
         {!isGenerated && (
           <p className="text-center">Your QR code will appear here :{')'}</p>
         )}
@@ -40,7 +53,7 @@ const CodeGenerator = () => {
       <div>
         <div className="flex flex-col gap-4 pb-4 items-center">
           <div className="flex justify-center items-center gap-4">
-            <label className="label" for="pattern-color">
+            <label className="label" htmlFor="pattern-color">
               Pattern Color:
             </label>
             <input
@@ -52,7 +65,7 @@ const CodeGenerator = () => {
           </div>
 
           <div className="flex justify-center items-center gap-4">
-            <label className="label" for="bg-color">
+            <label className="label" htmlFor="bg-color">
               Background Color:
             </label>
             <input
@@ -88,6 +101,13 @@ const CodeGenerator = () => {
       <button className="btn" onClick={triggerGeneration}>
         Generate
       </button>
+
+      <button className="btn" onClick={triggerDownload}>
+        Download
+      </button>
+      <a href="#" ref={linkRef} className="hidden" download="QR Code.png">
+        Download
+      </a>
     </div>
   );
 };
