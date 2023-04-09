@@ -41,7 +41,7 @@ const CodeGenerator = () => {
     <div className="w-full flex flex-col md:items-center px-8 gap-4">
       <div
         id="qr-code"
-        className="h-64 w-64 p-4 self-center flex justify-center items-center border rounded-md"
+        className="h-64 w-64 p-4 self-center flex justify-center items-center border-2 border-slate-400 rounded-md"
       >
         {!isGenerated && (
           <p className="text-center">Your QR code will appear here :{')'}</p>
@@ -57,7 +57,7 @@ const CodeGenerator = () => {
               Pattern Color:
             </label>
             <input
-              className="rounded-sm"
+              className="rounded-md border border-slate-500"
               type="color"
               id="pattern-color"
               value={colors.pattern}
@@ -70,7 +70,7 @@ const CodeGenerator = () => {
               Background Color:
             </label>
             <input
-              className="rounded-sm"
+              className="rounded-md border border-slate-500"
               type="color"
               id="bg-color"
               value={colors.bg}
