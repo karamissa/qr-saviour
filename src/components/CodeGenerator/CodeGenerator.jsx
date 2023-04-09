@@ -57,6 +57,7 @@ const CodeGenerator = () => {
               Pattern Color:
             </label>
             <input
+              className="rounded-sm"
               type="color"
               id="pattern-color"
               value={colors.pattern}
@@ -69,6 +70,7 @@ const CodeGenerator = () => {
               Background Color:
             </label>
             <input
+              className="rounded-sm"
               type="color"
               id="bg-color"
               value={colors.bg}
