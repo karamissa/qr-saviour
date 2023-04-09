@@ -13,7 +13,7 @@ const CodeGenerator = () => {
 
   const [finalValue, setFinalValue] = useState('');
 
-  const [colors, setColors] = useState({ pattern: '#008082', bg: '#ff7f52' });
+  const [colors, setColors] = useState({ pattern: '#ffffff', bg: '#000000' });
 
   const triggerGeneration = () => {
     if (codeType === 'link') {
