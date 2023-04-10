@@ -1,6 +1,6 @@
 const Navbar = ({ toggleDarkMode }) => {
   return (
-    <div className="w-full flex justify-between items-center p-10 text-4xl ">
+    <div className="w-full flex justify-between items-center p-8 text-4xl ">
       <h1 className="font-extrabold">QR Saviour</h1>
 
       <svg
