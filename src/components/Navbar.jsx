@@ -1,10 +1,10 @@
 const Navbar = ({ toggleDarkMode }) => {
   return (
-    <div className="w-full flex justify-between center items-center p-10 text-2xl ">
+    <div className="w-full flex justify-between items-center p-10 text-4xl ">
       <h1 className="font-extrabold">QR Saviour</h1>
 
       <svg
-        className="w-10 h-10 cursor-pointer rounded-full p-1 dark:hover:bg-gray-600 hover:bg-gray-300 transition duration-200"
+        className="w-8 h-8 cursor-pointer rounded-full p-1 dark:hover:bg-gray-600 hover:bg-gray-300 transition duration-200"
         fill="none"
         stroke="currentColor"
         strokeWidth={1.5}
