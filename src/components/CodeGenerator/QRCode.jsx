@@ -11,8 +11,8 @@ const QRCode = ({ colors, finalValue }) => {
         scale: 4,
         width: 256,
         color: {
-          dark: `${colors.bg}FF`,
-          light: `${colors.pattern}FF`
+          dark: `${colors.pattern}FF`,
+          light: `${colors.bg}FF`
         }
       }}
     />
