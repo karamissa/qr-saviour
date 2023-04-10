@@ -55,7 +55,7 @@ const CodeGenerator = () => {
           <div className="flex flex-col gap-4 pb-4 items-center">
             <div className="flex justify-center items-center gap-4">
               <label className="label" htmlFor="pattern-color">
-                Pattern Color:
+                Pattern Colour:
               </label>
               <input
                 className="rounded-md border border-slate-500"
@@ -70,7 +70,7 @@ const CodeGenerator = () => {
 
             <div className="flex justify-center items-center gap-4">
               <label className="label" htmlFor="bg-color">
-                Background Color:
+                Background Colour:
               </label>
               <input
                 className="rounded-md border border-slate-500"
