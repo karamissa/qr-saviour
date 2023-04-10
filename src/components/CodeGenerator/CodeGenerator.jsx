@@ -103,7 +103,16 @@ const CodeGenerator = () => {
           )}
         </div>
 
-        <button className="btn" onClick={triggerGeneration}>
+        <button
+          className="btn"
+          disabled={
+            (codeType === 'link' && linkValue === '') ||
+            (codeType === 'wifi' && wifiInfo.name === '')
+              ? true
+              : false
+          }
+          onClick={triggerGeneration}
+        >
           Generate
         </button>
 
