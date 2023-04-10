@@ -38,10 +38,10 @@ const CodeGenerator = () => {
   };
 
   return (
-    <div className="w-full flex flex-col md:items-center px-8 gap-4">
+    <div className="w-full flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-20 md:w-3/4 px-8">
       <div
         id="qr-code"
-        className="h-64 w-64 p-4 self-center flex justify-center items-center border-2 border-slate-400 rounded-md"
+        className="h-64 w-64 md:h-80 md:w-80 lg:h-96 lg:w-96 p-4 self-center flex justify-center items-center border-2 border-slate-400 rounded-md"
       >
         {!isGenerated && (
           <p className="text-center">Your QR code will appear here :{')'}</p>
@@ -50,70 +50,74 @@ const CodeGenerator = () => {
         {isGenerated && <QRCode colors={colors} finalValue={finalValue} />}
       </div>
 
-      <div>
-        <div className="flex flex-col gap-4 pb-4 items-center">
-          <div className="flex justify-center items-center gap-4">
-            <label className="label" htmlFor="pattern-color">
-              Pattern Color:
-            </label>
-            <input
-              className="rounded-md border border-slate-500"
-              type="color"
-              id="pattern-color"
-              value={colors.pattern}
-              onInput={(e) => setColors({ ...colors, pattern: e.target.value })}
-            />
+      <div className="flex flex-col gap-4 lg:flex-1">
+        <div>
+          <div className="flex flex-col gap-4 pb-4 items-center">
+            <div className="flex justify-center items-center gap-4">
+              <label className="label" htmlFor="pattern-color">
+                Pattern Color:
+              </label>
+              <input
+                className="rounded-md border border-slate-500"
+                type="color"
+                id="pattern-color"
+                value={colors.pattern}
+                onInput={(e) =>
+                  setColors({ ...colors, pattern: e.target.value })
+                }
+              />
+            </div>
+
+            <div className="flex justify-center items-center gap-4">
+              <label className="label" htmlFor="bg-color">
+                Background Color:
+              </label>
+              <input
+                className="rounded-md border border-slate-500"
+                type="color"
+                id="bg-color"
+                value={colors.bg}
+                onInput={(e) => setColors({ ...colors, bg: e.target.value })}
+              />
+            </div>
           </div>
 
-          <div className="flex justify-center items-center gap-4">
-            <label className="label" htmlFor="bg-color">
-              Background Color:
-            </label>
-            <input
-              className="rounded-md border border-slate-500"
-              type="color"
-              id="bg-color"
-              value={colors.bg}
-              onInput={(e) => setColors({ ...colors, bg: e.target.value })}
-            />
+          <div className="pb-4">
+            <label className="select-label">Code Type:</label>
+            <select
+              className="select-input"
+              value={codeType}
+              onChange={(e) => setCodeType(e.target.value)}
+            >
+              <option value="link">Link</option>
+              <option value="wifi">Wifi</option>
+            </select>
           </div>
+
+          {codeType === 'link' && (
+            <LinkOption linkValue={linkValue} setLinkValue={setLinkValue} />
+          )}
+
+          {codeType === 'wifi' && (
+            <WifiOption wifiInfo={wifiInfo} setWifiInfo={setWifiInfo} />
+          )}
         </div>
 
-        <div className="pb-4">
-          <label className="select-label">Code Type:</label>
-          <select
-            className="select-input"
-            value={codeType}
-            onChange={(e) => setCodeType(e.target.value)}
-          >
-            <option value="link">Link</option>
-            <option value="wifi">Wifi</option>
-          </select>
-        </div>
+        <button className="btn" onClick={triggerGeneration}>
+          Generate
+        </button>
 
-        {codeType === 'link' && (
-          <LinkOption linkValue={linkValue} setLinkValue={setLinkValue} />
-        )}
-
-        {codeType === 'wifi' && (
-          <WifiOption wifiInfo={wifiInfo} setWifiInfo={setWifiInfo} />
-        )}
+        <button
+          className="btn"
+          disabled={finalValue === '' ? true : false}
+          onClick={triggerDownload}
+        >
+          Download
+        </button>
+        <a href="#" ref={linkRef} className="hidden" download="QR Code.png">
+          Download
+        </a>
       </div>
-
-      <button className="btn" onClick={triggerGeneration}>
-        Generate
-      </button>
-
-      <button
-        className="btn"
-        disabled={finalValue === '' ? true : false}
-        onClick={triggerDownload}
-      >
-        Download
-      </button>
-      <a href="#" ref={linkRef} className="hidden" download="QR Code.png">
-        Download
-      </a>
     </div>
   );
 };
