@@ -13,7 +13,7 @@ const CodeGenerator = () => {
 
   const [finalValue, setFinalValue] = useState('');
 
-  const [colors, setColors] = useState({ pattern: '#ffffff', bg: '#000000' });
+  const [colors, setColors] = useState({ pattern: '#000000', bg: '#ffffff' });
 
   const linkRef = useRef(null);
 
